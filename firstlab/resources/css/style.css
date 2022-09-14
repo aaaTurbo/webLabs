@@ -1,0 +1,47 @@
+#taskImg {
+    height: 350px;
+    width: 450px;
+}
+
+#mainTable{
+    text-align: center;
+    align-content: center;
+    width: 100%;
+    border-style: solid;
+    border-width: thin;
+    border-color: black;
+}
+
+header {
+    tab-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    background: aqua;
+}
+
+#menu {
+    line-height: 3;
+}
+
+button:active, button:focus, button:hover{
+    color: aqua;
+}
+
+#resultTable{
+    text-align: center;
+    align-content: center;
+    width: 100%;
+    border-style: solid;
+    border-width: thin;
+    border-color: black;
+}
+
+line{
+    stroke: black;
+    font-size: 10px;
+}
+
+.figure {
+    fill: aqua;
+    opacity: 60%;
+}
