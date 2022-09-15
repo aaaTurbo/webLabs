@@ -7,7 +7,7 @@ function receiveSubmit() {
     if (validate(xValue, yValue, rValue)) {
         $.ajax({
             type: 'POST',
-            url: "../firstPage/index.php",
+            url: "../php/index.php",
             async: false,
             data: { 'x': xValue.trim(), 'y': yValue.trim(), 'r': rValue.trim() },
             success: function (data) {
