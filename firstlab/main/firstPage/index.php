@@ -55,7 +55,7 @@ date_default_timezone_set('Europe/Moscow');
 
 $start = microtime(true);
 
-$current_time = date("H:i:s");
+$current_time = date("H:i:s D:M:Y");
 
 $x = $_POST['x'];
 $y = $_POST['y'];

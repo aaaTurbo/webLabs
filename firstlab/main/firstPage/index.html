@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<script src="../script/setterOfXandR.js"></script>
+<script src="../script/setterOfXandR.js" defer></script>
 <script src="../script/validator.js"></script>
 <script src="../script/updater.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -17,73 +17,93 @@
     <tbody>
     <tr>
         <td>
-        <svg width="300" height="300">
-            <!--Координатные оси-->
-            <line x1="0" x2="300" y1="150" y2="150"></line>
-            <line x1="150" x2="150" y1="0" y2="300"></line>
-            <!--Стрелочки-->
-            <polygon points="150,0 145,15 155,15"></polygon>
-            <polygon points="300,150 285,145 285,155"></polygon>
-            <!--Треугольник в первой четверти-->
-            <polygon points="150,150 200,150 150,50" class="figure"></polygon>
-            <!--Прямоуголтник во второй четверти-->
-            <polygon points="150,150 50,150 50,100 150,100" class="figure"></polygon>
-            <!--Четверть круга в третьей четверти-->
-            <path d="M150,250 A100,100 90 0,1 50,150 L 150,150 Z" class="figure"></path>
-            <!-- Подписи к осям -->
-            <text x="285" y="135">X</text>
-            <text x="160" y="15">Y</text>
-            <!-- Метки для значений R на оси X -->
-            <line x1="50" x2="50" y1="145" y2="155"></line>
-            <line x1="100" x2="100" y1="145" y2="155"></line>
-            <line x1="200" x2="200" y1="145" y2="155"></line>
-            <line x1="250" x2="250" y1="145" y2="155"></line>
-            <!-- Метки для значений R на оси Y -->
-            <line x1="145" x2="155" y1="50" y2="50"></line>
-            <line x1="145" x2="155" y1="100" y2="100"></line>
-            <line x1="145" x2="155" y1="200" y2="200"></line>
-            <line x1="145" x2="155" y1="250" y2="250"></line>
-            <!-- Значения R на оси X -->
-            <text x="50" y="140" text-anchor="middle" id="-r">-R</text>
-            <text x="98" y="140" text-anchor="middle" id="-r2">-R/2</text>
-            <text x="200" y="140" text-anchor="middle" id="r2">R/2</text>
-            <text x="250" y="140" text-anchor="middle" id="r">R</text>
-            <!-- Значения R на оси Y -->
-            <text x="160" y="52.5" id="R">R</text>
-            <text x="160" y="102.5" id="R2">R/2</text>
-            <text x="160" y="202.5" id="-R2">-R/2</text>
-            <text x="160" y="252.5" id="-R">-R</text>
-        </svg>
+            <svg width="300" height="300">
+                <!--Координатные оси-->
+                <line x1="0" x2="300" y1="150" y2="150"></line>
+                <line x1="150" x2="150" y1="0" y2="300"></line>
+                <!--Стрелочки-->
+                <polygon points="150,0 145,15 155,15"></polygon>
+                <polygon points="300,150 285,145 285,155"></polygon>
+                <!--Треугольник в первой четверти-->
+                <polygon points="150,150 200,150 150,50" class="figure"></polygon>
+                <!--Прямоуголтник во второй четверти-->
+                <polygon points="150,150 50,150 50,100 150,100" class="figure"></polygon>
+                <!--Четверть круга в третьей четверти-->
+                <path d="M150,250 A100,100 90 0,1 50,150 L 150,150 Z" class="figure"></path>
+                <!-- Подписи к осям -->
+                <text x="285" y="135">X</text>
+                <text x="160" y="15">Y</text>
+                <!-- Метки для значений R на оси X -->
+                <line x1="50" x2="50" y1="145" y2="155"></line>
+                <line x1="100" x2="100" y1="145" y2="155"></line>
+                <line x1="200" x2="200" y1="145" y2="155"></line>
+                <line x1="250" x2="250" y1="145" y2="155"></line>
+                <!-- Метки для значений R на оси Y -->
+                <line x1="145" x2="155" y1="50" y2="50"></line>
+                <line x1="145" x2="155" y1="100" y2="100"></line>
+                <line x1="145" x2="155" y1="200" y2="200"></line>
+                <line x1="145" x2="155" y1="250" y2="250"></line>
+                <!-- Значения R на оси X -->
+                <text x="50" y="140" text-anchor="middle" id="-r">-R</text>
+                <text x="98" y="140" text-anchor="middle" id="-r2">-R/2</text>
+                <text x="200" y="140" text-anchor="middle" id="r2">R/2</text>
+                <text x="250" y="140" text-anchor="middle" id="r">R</text>
+                <!-- Значения R на оси Y -->
+                <text x="160" y="52.5" id="R">R</text>
+                <text x="160" y="102.5" id="R2">R/2</text>
+                <text x="160" y="202.5" id="-R2">-R/2</text>
+                <text x="160" y="252.5" id="-R">-R</text>
+            </svg>
         </td>
         <td class="userInput" id="menu">
             <form id="form" name="form" onsubmit="receiveSubmit(); return false">
-                <label for="x_value">Изменение X:
+                <label for="x_value" id="buttonsX">Изменение X:
 
-                    <button type="button" value="-2" onclick="setX(value)">-2</button>
-                    <button type="button" value="-1.5" onclick="setX(value)">-1.5</button>
-                    <button type="button" value="-1" onclick="setX(value)">-1</button>
-                    <button type="button" value="-0.5" onclick="setX(value)">-0.5</button>
-                    <button type="button" value="0" onclick="setX(value)">0</button>
-                    <button type="button" value="0.5" onclick="setX(value)">0.5</button>
-                    <button type="button" value="1" onclick="setX(value)">1</button>
-                    <button type="button" value="1.5" onclick="setX(value)">1.5</button>
-                    <button type="button" value="2" onclick="setX(value)">2</button>
+                    <button type="button" class="btnGroupX" value="-2" id="x1" onclick="setX(value, id)">-2</button>
+                    <button type="button" class="btnGroupX" value="-1.5" id="x2" onclick="setX(value, id)">-1.5</button>
+                    <button type="button" class="btnGroupX" value="-1" id="x3" onclick="setX(value, id)">-1</button>
+                    <button type="button" class="btnGroupX" value="-0.5" id="x4" onclick="setX(value, id)">-0.5</button>
+                    <button type="button" class="btnGroupX" value="0" id="x5" onclick="setX(value, id)">0</button>
+                    <button type="button" class="btnGroupX" value="0.5" id="x6" onclick="setX(value, id)">0.5</button>
+                    <button type="button" class="btnGroupX" value="1" id="x7" onclick="setX(value, id)">1</button>
+                    <button type="button" class="btnGroupX" value="1.5" id="x8" onclick="setX(value, id)">1.5</button>
+                    <button type="button" class="btnGroupX" value="2" id="x9" onclick="setX(value, id)">2</button>
 
                 </label>
                 <input type="hidden" name="x_value" id="x_value">
                 <br>
                 <label for="y_value">Изменение Y:
 
-                    <input type="text" name="y_value" id="y_value" placeholder="Число от -3 до 5" maxlength="10" required>
+                    <input type="text" name="y_value" id="y_value" placeholder="Число от -3 до 5" maxlength="10"
+                           required>
                 </label>
-                    <br>
-                    <label for="r_value">Изменение R:
+                <br>
+                <label for="r_value">Изменение R:
 
-                    <input type="checkbox" value="1" onclick="setR(value)"> 1
-                    <input type="checkbox" value="2" onclick="setR(value)"> 2
-                    <input type="checkbox" value="3" onclick="setR(value)"> 3
-                    <input type="checkbox" value="4" onclick="setR(value)"> 4
-                    <input type="checkbox" value="5" onclick="setR(value)"> 5
+                    <label for="r1" class="chBoxGroup">
+                        <input type="checkbox" id="r1" class="checkBox" value="1" onclick="setR(value, id)">
+                        <span>1</span>
+                    </label>
+
+                    <label for="r02" class="chBoxGroup">
+                        <input type="checkbox" id="r02" value="2" onclick="setR(value, id)">
+                        <span>2</span>
+                    </label>
+
+                    <label for="r3" class="chBoxGroup">
+                        <input type="checkbox" id="r3" value="3" onclick="setR(value, id)">
+                        <span>3</span>
+                    </label>
+
+                    <label for="r4" class="chBoxGroup">
+                        <input type="checkbox" id="r4" value="4" onclick="setR(value, id)">
+                        <span>4</span>
+                    </label>
+
+                    <label for="r5" class="chBoxGroup">
+                        <input type="checkbox" id="r5" value="5" onclick="setR(value, id)">
+                        <span>5</span>
+                    </label>
 
                 </label>
                 <input type="hidden" name="r_value" id="r_value">
@@ -100,6 +120,7 @@
     </tbody>
 </table>
 <button onclick="clearTable()">Отчистить результаты</button>
+<button onclick="goToResults()">Посмотреть результаты</button>
 <table>
     <tbody id="resultTableBody" hidden></tbody>
 </table>

@@ -3,6 +3,38 @@
     width: 450px;
 }
 
+html {
+    background-color: aliceblue;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+.chBoxGroup span {
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    line-height: 10px;
+    font-size: 15px;
+    border: 0;
+    background-color: white;
+    border-radius: 10px;
+    padding-bottom: 1%;
+    padding-top: 1%;
+}
+
+.chBoxGroup input:checked ~ span {
+    background-color: aqua;
+}
+
+input[type=text] {
+    outline-style: solid;
+    outline-width: 2px;
+    outline-color: aqua;
+    box-shadow: none;
+}
+
 #mainTable{
     text-align: center;
     align-content: center;
@@ -17,14 +49,26 @@ header {
     font-weight: bold;
     text-align: center;
     background: aqua;
+    font-family: sans-serif;
 }
 
 #menu {
     line-height: 3;
 }
 
-button:active, button:focus, button:hover{
-    color: aqua;
+button {
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    background-color: white;
+    border-width: 0;
+    box-shadow: none;
+    border-radius: 30px;
+}
+
+button:hover {
+    background-color: aqua;
+    border-width: 0;
+    box-shadow: none;
 }
 
 #resultTable{
