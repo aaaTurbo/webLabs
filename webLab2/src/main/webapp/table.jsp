@@ -122,6 +122,6 @@
 <button onclick="goMain()">Return to menu</button>
 </body>
 <script>function goMain() {
-    window.location.href = "../menu";
+    window.location.href = "menu";
 }</script>
 </html>
