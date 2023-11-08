@@ -1,0 +1,19 @@
+<html xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <h:outputStylesheet name="css/startpage.css"/>
+    <h:outputScript name="js/clock.js"/>
+    <title>LAB 3 ELKI PALKI</title>
+    <link rel="icon" href="resources/favicon.ico" type="image/x-icon"/>
+</h:head>
+<h:body>
+    <header>
+        ITMO UNIVERSITY <br/> Semenov Anton Alekseevich <br/> P3214 <br/> Variant 2470
+    </header>
+    <div id="mainBlock">
+        <div id="clock"></div>
+        <script>clock();</script>
+        <h:button outcome="gotoApp" id="gotoApp" styleClass="button-64" value="GO TO APP"/>
+    </div>
+</h:body>
+</html>

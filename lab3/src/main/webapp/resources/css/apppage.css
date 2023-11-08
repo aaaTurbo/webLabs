@@ -1,0 +1,203 @@
+*{
+    background: #02021e;
+    color: white;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 20px;
+    max-width: 100%;
+}
+
+table {
+    width: 100%;
+}
+
+div {
+    align-content: center;
+    text-align: center;
+}
+
+body {
+    width: 100%;
+    margin: 0;
+}
+
+line {
+    stroke: white;
+}
+
+.figure {
+    fill: #b033cc;
+    opacity: 80%;
+}
+
+polygon {
+    fill: white;
+}
+
+text {
+    fill: white;
+}
+
+input[type=text] {
+    outline: #b033cc solid 2px;
+    box-shadow: none;
+}
+
+#formNerr {
+    line-height: 40px;
+    padding-left: 10px;
+}
+
+#imap {
+    width: 50%;
+    text-align: right;
+    margin-left: 0;
+    margin-top: 0;
+}
+
+#imap #tooltiptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #bd1919;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    z-index: 1;
+    left: 50%;
+    margin-left: 250px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+#imap #tooltiptext::after {
+    content: "";
+    position: fixed;
+    margin-left: 250px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+#imap:hover #tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+#map {
+    border: solid white 1px;
+}
+
+.scroll-table-body {
+    height: 450px;
+    overflow-x: auto;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+.scroll-table table {
+    width:100%;
+    table-layout: fixed;
+    border: none;
+}
+.scroll-table thead th {
+    font-weight: bold;
+    text-align: left;
+    border: none;
+    padding: 10px 15px;
+    background: #d8d8d8;
+    font-size: 14px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+.scroll-table tbody tr:nth-child(even){
+    background: #f3f3f3;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+#results {
+    overflow-x: auto;
+    text-align: center;
+    align-content: center;
+    width: 100%;
+    border-style: solid;
+    border-width: thin;
+    border-color: white;
+    border-top: none;
+}
+
+#tableCap {
+    margin-top: 50px;
+    text-align: center;
+    align-content: center;
+    width: 100%;
+    border-style: solid;
+    border-width: thin;
+    border-color: white;
+}
+
+#results > tbody > tr > td {
+    width: 20%;
+}
+
+#tableCap > tbody > tr > td {
+    width: 20%;
+}
+
+.valInf {
+    color: red;
+}
+
+.bbtn {
+    height: 42px;
+    width: 134px;
+    font-size: 20px;
+    align-content: center;
+    align-items: center;
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    display: inline-flex;
+    font-family: 'Share Tech Mono', monospace;
+    justify-content: center;
+    line-height: 1em;
+    min-width: 140px;
+    padding: 3px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.ui-button-text {
+    background: transparent;
+}
+
+.ui-spinner-input {
+    width: 264px;
+    height: 29px;
+}
+
+.ui-spinner-horizontal-after {
+    width: 265px;
+    height: 29px;
+}
+
+
+.radio table {
+    width: 700px;
+}

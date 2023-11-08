@@ -1,0 +1,57 @@
+*{
+    background: #02021e;
+}
+
+header {
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+#mainBlock {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#clock {
+    font-size: 40px;
+    font-family: 'Share Tech Mono', monospace;
+    color: #ffffff;
+    text-shadow: #f700ff 1px 0 25px;
+}
+
+.button-64 {
+    align-content: center;
+    align-items: center;
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    display: flex;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 20px;
+    justify-content: center;
+    line-height: 1em;
+    max-width: 100%;
+    min-width: 140px;
+    padding: 3px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .button-64 {
+        font-size: 24px;
+        min-width: 196px;
+    }
+}
+

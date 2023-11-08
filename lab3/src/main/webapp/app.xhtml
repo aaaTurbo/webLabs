@@ -1,0 +1,139 @@
+<html xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough" xmlns:c="http://java.sun.com/jstl/core">
+<h:head>
+    <title>ENOMOUS APP</title>
+    <link rel="icon" href="resources/favicon.ico" type="image/x-icon"/>
+    <h:outputStylesheet name="css/apppage.css"/>
+    <h:outputScript name="js/iMap.js" target="body"/>
+</h:head>
+<h:body>
+    <table>
+        <tbody>
+        <tr>
+            <td id="imap">
+                <span id="tooltiptext">Set R!</span>
+                <br/>
+                <svg width="300" height="300" id="map">
+
+                    <line x1="0" x2="300" y1="150" y2="150"/>
+                    <line x1="150" x2="150" y1="0" y2="300"/>
+
+                    <polygon points="150,0 145,15 155,15"/>
+                    <polygon points="300,150 285,145 285,155"/>
+
+                    <polygon points="250,150 150,200 150,150" class="figure"/>
+
+                    <polygon points="150,150 150,100 50,100 50,150" class="figure"/>
+
+                    <path d="M150,250 A100,100 90 0,1 50,150 L 150,150 Z" class="figure"/>
+
+                    <text x="285" y="135">X</text>
+                    <text x="160" y="15">Y</text>
+
+                    <line x1="50" x2="50" y1="145" y2="155"/>
+                    <line x1="100" x2="100" y1="145" y2="155"/>
+                    <line x1="200" x2="200" y1="145" y2="155"/>
+                    <line x1="250" x2="250" y1="145" y2="155"/>
+
+                    <line x1="145" x2="155" y1="50" y2="50"/>
+                    <line x1="145" x2="155" y1="100" y2="100"/>
+                    <line x1="145" x2="155" y1="200" y2="200"/>
+                    <line x1="145" x2="155" y1="250" y2="250"/>
+
+                    <text x="50" y="140" text-anchor="middle" id="-r">-R</text>
+                    <text x="98" y="140" text-anchor="middle" id="-r2">-R/2</text>
+                    <text x="200" y="140" text-anchor="middle" id="r2">R/2</text>
+                    <text x="250" y="140" text-anchor="middle" id="r">R</text>
+
+                    <text x="160" y="52.5" id="R">R</text>
+                    <text x="160" y="102.5" id="R2">R/2</text>
+                    <text x="160" y="202.5" id="-R2">-R/2</text>
+                    <text x="160" y="252.5" id="-R">-R</text>
+
+                    <h:outputText value="#{appBean.dots}" escape="false"/>
+
+                </svg>
+            </td>
+            <td id="formNerr">
+                <h:form id="form" name="form">
+                    <label class="radio">Change X:
+
+                        <h:selectOneRadio value="#{appBean.x}">
+                            <f:selectItem itemValue="-2" itemLabel="-2"/>
+                            <f:selectItem itemValue="-1.5" itemLabel="-1.5"/>
+                            <f:selectItem itemValue="-1" itemLabel="-1"/>
+                            <f:selectItem itemValue="-0.5" itemLabel="-0.5"/>
+                            <f:selectItem itemValue="0" itemLabel="0"/>
+                            <f:selectItem itemValue="0.5" itemLabel="0.5"/>
+                            <f:selectItem itemValue="1" itemLabel="1"/>
+                            <f:selectItem itemValue="1.5" itemLabel="1.5"/>
+                            <f:selectItem itemValue="2" itemLabel="2"/>
+                        </h:selectOneRadio>
+
+                    </label>
+                    <br/>
+                    <label for="y_value">Change Y:
+
+                        <h:inputText type="text" name="y_value" id="y_value" a:placeholder="Number from -5 upto 5"
+                                     maxlength="10" value="#{appBean.y}"/>
+                    </label>
+                    <br/>
+                    <label for="r_value" id="buttonsR">Change R:
+                        <p:spinner id="horizontalAfter" buttons="horizontal-after" min="0.2" max="2.9" rotate="true"
+                                   stepFactor="0.1" styleClass="horizontalAfter_input" value="#{appBean.r}"
+                                   onchange="setR()"
+                        />
+                    </label>
+                    <br/>
+                    <h:outputText id="validationInfo" value="#{appBean.valInf}" styleClass="valInf"/>
+                    <br/>
+                    <h:commandButton id="Submit" styleClass="bbtn" value="Submit" action="#{appBean.save}">
+                        <p:ajax update="@all"/>
+                        <f:ajax execute="@form" render="results validationInfo"/>
+                    </h:commandButton>
+                    <h:commandButton id="Reset" styleClass="bbtn" value="Reset" type="reset"
+                                     action="#{appBean.reset()}" onclick="erase()"/>
+                </h:form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table id="tableCap">
+        <tbody>
+        <tr>
+            <td>TIME</td>
+            <td>HIT</td>
+            <td>X</td>
+            <td>Y</td>
+            <td>R</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="scroll-table-body">
+        <h:dataTable id="results" class="scroll-table" value="#{appBean.reports}" var="report">
+            <h:column>
+                <h:outputText value="#{report.time}"/>
+            </h:column>
+            <h:column>
+                <h:outputText value="#{report.hit}"
+                              style="#{report.hit eq 'true'? 'color: #00ff00' : 'color: red'}"/>
+            </h:column>
+            <h:column>
+                <h:outputText value="#{report.x}"/>
+            </h:column>
+            <h:column>
+                <h:outputText value="#{report.y}"/>
+            </h:column>
+            <h:column>
+                <h:outputText value="#{report.r}"/>
+            </h:column>
+        </h:dataTable>
+    </div>
+    <h:button outcome="goHome" id="goHome" styleClass="bbtn" value="GO HOME"/>
+    <script>
+        let map = document.getElementById("map");
+        map.innerHTML = map.innerHTML + sessionStorage.getItem("dots");
+    </script>
+</h:body>
+</html>
